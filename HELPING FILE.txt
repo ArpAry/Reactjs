@@ -1,0 +1,25 @@
+////////////////////////////////////////////////////////
+FOR RELOADING THE PAGE CODE OF JS FILE CONVERTS INTO THE JSX FILE & WE HAVE TO RUN THIS AGAIN AND AGAIN 
+
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react  
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+AUTOMATIC  RELOAD THE PAGE CODE OF JS FILE CONVERTS  INTO THE JSX FILE & WE DO NOT REQUIRE TO RUN IT AGAIN AND AGAIN  
+
+babel src/app.js  --out-file=public/scripts/app.js --presets=env,react --watch
+
+
+
+//   var studentInfo=
+// (
+//       <div>
+//             <h1>Name: Arpit</h1>
+//             <p> Age:20</p>
+//             <p>Location:Bareilly</p>
+//       </div>
+// );
+//       var templateTwo=document.getElementById("personal");
+//       ReactDOM.render(studentInfo,templateTwo);
+
+
