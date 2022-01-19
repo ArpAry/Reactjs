@@ -1,9 +1,8 @@
-'use strict';
-
-var add = function add(a, b) {
-    //  console.log(arguments);
-    return a + b;
-};
+const add = (a,b) =>
+{
+  //  console.log(arguments);
+    return a+b;
+}
 //console.log(add(5,3));
 /*
 // this is function Es5---Es5 USING ( THIS ) WHICH IS NOT WORKING IN IT 
@@ -19,6 +18,7 @@ const user={
     }
 }
 user.printPlacesLived(); */
+
 
 /*
 // this is function Es5---Es5 USING  ( THIS ) INDIRECTLY WHICH IS  WORKING IN IT
@@ -69,6 +69,8 @@ user.printPlacesLived(); */
 // user.printPlacesLived();
 
 
+
+
 //  Es5 FUNCTION CONTAING ( Map ) Method 
 // const user={
 //     name:'Andrew',
@@ -85,29 +87,23 @@ user.printPlacesLived(); */
 // user.printPlacesLived();
 
 
-var user = {
-    name: 'Andrew',
-    cities: ['Philidephia', 'Newyork', 'Dublin'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
-        return this.cities.map(function (city) {
-            return _this.name + ' has Lived in ' + city;
-        });
+const user={
+    name:'Andrew',
+    cities:['Philidephia','Newyork','Dublin'],
+    printPlacesLived(){
+    return this.cities.map((city) => this.name +' has Lived in '+ city );
     }
 };
 
 console.log(user.printPlacesLived());
 
-var multiplier = {
-    numbers: [1, 2, 3],
-    number: 2,
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (num) {
-            return num * _this2.number + ' have been multiplied ' + _this2.number;
-        });
+let multiplier={
+    numbers:[1,2,3],
+    number:2,
+    multiply ()
+    {
+        return this.numbers.map((num) => num*this.number+' have been multiplied '+this.number);
     }
-};
+}
 console.log(multiplier.multiply());
+

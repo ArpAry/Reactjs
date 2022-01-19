@@ -1,12 +1,12 @@
 console.log("hello");
 ///////////JSX  Java Script XML
-var app={
+let app={
      title:"App",
      subtitle:"this app is very useful",     
      options:['one','two']
 
 }
-var template = (
+let template = (
   <div>
     <h1>{app.title}</h1>
     {app.subtitle&&<p>{app.subtitle}</p>}
@@ -17,10 +17,10 @@ var template = (
     </ol>
   </div>
 );
-var appRoot = document.getElementById("app");
+let appRoot = document.getElementById("app");
 ReactDOM.render(template, appRoot);
 
-var user=
+let user=
 {
       Name:"praveen",
       Age:18,
@@ -32,7 +32,7 @@ function getLoc(location)
       if(location)
       return <p>location: {location}</p>;
 }
-var temp = (
+let temp = (
   <div>
     <h1>{user.Name ?user.Name:"NONAME"}</h1>
     {user.Age &&(user.Age >=18 ) &&<p>Age:{user.Age}</p>}
@@ -40,5 +40,5 @@ var temp = (
   </div>
 );
 
-var tempTwo = document.getElementById("personal");
+let tempTwo = document.getElementById("personal");
 ReactDOM.render(temp, tempTwo);
