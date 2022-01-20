@@ -1,44 +1,33 @@
-console.log("hello");
-///////////JSX  Java Script XML
-let app={
-     title:"App",
-     subtitle:"this app is very useful",     
-     options:['one','two']
+let count = 0;
+const addOne = () => {
+  count++;
+  console.log("Add One ", count);
+  renderCountApp();
+};
+const minusOne = () => {
+  count--;
+  console.log("Minus One ", count);
+  renderCountApp();
+};
+const resetFun = () => {
+  count = 0;
+  console.log("Reset Function ", count);
+  renderCountApp();
+};
 
-}
-let template = (
-  <div>
-    <h1>{app.title}</h1>
-    {app.subtitle&&<p>{app.subtitle}</p>}
-    {app['options'].length>0 ?<p>Here are Your Options</p> :<p>No Options </p> }
-    <ol>
-      <li>Item One</li>
-      <li>Item Two</li>
-    </ol>
-  </div>
-);
-let appRoot = document.getElementById("app");
-ReactDOM.render(template, appRoot);
+const appRoot = document.getElementById("app");
 
-let user=
-{
-      Name:"praveen",
-      Age:18,
-      Location:"Delhi"
+const renderCountApp = function () {
+  const templateTwo = (
+    <div>
+      <h1>Count : {count}</h1>
+      <button onClick={addOne}>+1</button>
+      <button onClick={minusOne}>-1</button>
+      <button onClick={resetFun}>reset</button>
+    </div>
+  );
 
-}
-function getLoc(location)
-{
-      if(location)
-      return <p>location: {location}</p>;
-}
-let temp = (
-  <div>
-    <h1>{user.Name ?user.Name:"NONAME"}</h1>
-    {user.Age &&(user.Age >=18 ) &&<p>Age:{user.Age}</p>}
-    {getLoc(user.Location)}
-  </div>
-);
+  ReactDOM.render(templateTwo, appRoot);
+};
 
-let tempTwo = document.getElementById("personal");
-ReactDOM.render(temp, tempTwo);
+renderCountApp();

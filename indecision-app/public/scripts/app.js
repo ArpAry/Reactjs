@@ -1,113 +1,52 @@
-'use strict';
+"use strict";
 
-var add = function add(a, b) {
-    //  console.log(arguments);
-    return a + b;
+var count = 0;
+var addOne = function addOne() {
+  count++;
+  console.log("Add One ", count);
+  renderCountApp();
 };
-//console.log(add(5,3));
-/*
-// this is function Es5---Es5 USING ( THIS ) WHICH IS NOT WORKING IN IT 
-const user={
-    name:'Andrew',
-    cities:['Philidephia','Nework','Dublin'],
-    printPlacesLived:function(){
-        this.cities.forEach(function(city)
-        {
-            console.log(this.name +' has lived in '+city )
-
-        });
-    }
-}
-user.printPlacesLived(); */
-
-/*
-// this is function Es5---Es5 USING  ( THIS ) INDIRECTLY WHICH IS  WORKING IN IT
-//  
-const user={
-    name:'Andrew',
-    cities:['Philidephia','Nework','Dublin'],
-    printPlacesLived:function(){
-        let that =this;
-        this.cities.forEach(function(city)
-        {
-            console.log(that.name +' has lived in '+city )
-
-        });
-    }
-}
-user.printPlacesLived(); */
-
-// this is function Es5---Es6 USING ( THIS  ) WHICH IS  WORKING IN IT
-// const user={
-//     name:'Andrew',
-//     cities:['Philidephia','NewYork','Dublin'],
-//     printPlacesLived:function(){
-//         this.cities.forEach((city) =>
-//         {
-//             console.log(this.name +' has lived in  ' +city )
-
-//         });
-//     }
-// }
-// user.printPlacesLived();
-
-
-// this is function Es6---Es6 USING ( THIS ) WHICH IS NOT WORKING IN IT
-
-// const user={
-//     name:'Andrew',
-//     cities:['Philidephia','Newyork','Dublin'],
-//     printPlacesLived:()=>{
-//        
-//         this.cities.forEach((city) =>
-//         {
-//             console.log(this.name +' has lived in '+city )
-
-//         });
-//     }
-// }
-// user.printPlacesLived();
-
-
-//  Es5 FUNCTION CONTAING ( Map ) Method 
-// const user={
-//     name:'Andrew',
-//     cities:['Philidephia','Newyork','Dublin'],
-//     printPlacesLived:function(){
-//         const cityMessages=this.cities.Map(city)
-//         {
-//             return this.name +' has Lived in '+ city ;
-
-//         };
-//         return cityMessages;
-//     }
-// }
-// user.printPlacesLived();
-
-
-var user = {
-    name: 'Andrew',
-    cities: ['Philidephia', 'Newyork', 'Dublin'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
-        return this.cities.map(function (city) {
-            return _this.name + ' has Lived in ' + city;
-        });
-    }
+var minusOne = function minusOne() {
+  count--;
+  console.log("Minus One ", count);
+  renderCountApp();
+};
+var resetFun = function resetFun() {
+  count = 0;
+  console.log("Reset Function ", count);
+  renderCountApp();
 };
 
-console.log(user.printPlacesLived());
+var appRoot = document.getElementById("app");
 
-var multiplier = {
-    numbers: [1, 2, 3],
-    number: 2,
-    multiply: function multiply() {
-        var _this2 = this;
+var renderCountApp = function renderCountApp() {
+  var templateTwo = React.createElement(
+    "div",
+    null,
+    React.createElement(
+      "h1",
+      null,
+      "Count : ",
+      count
+    ),
+    React.createElement(
+      "button",
+      { onClick: addOne },
+      "+1"
+    ),
+    React.createElement(
+      "button",
+      { onClick: minusOne },
+      "-1"
+    ),
+    React.createElement(
+      "button",
+      { onClick: resetFun },
+      "reset"
+    )
+  );
 
-        return this.numbers.map(function (num) {
-            return num * _this2.number + ' have been multiplied ' + _this2.number;
-        });
-    }
+  ReactDOM.render(templateTwo, appRoot);
 };
-console.log(multiplier.multiply());
+
+renderCountApp();
