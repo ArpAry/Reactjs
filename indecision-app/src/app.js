@@ -1,33 +1,36 @@
-let count = 0;
-const addOne = () => {
-  count++;
-  console.log("Add One ", count);
-  renderCountApp();
+const app={
+  title:"Indecision App",
+  subtitle:"Put Your life in hands of computer",
+  option:['One','Two']
 };
-const minusOne = () => {
-  count--;
-  console.log("Minus One ", count);
-  renderCountApp();
+const onformsubmit  = (e) =>
+{
+  e.preventDefault();
+  const interest=e.target.form.option.value;
+
+  //console.log(interest);
+
+  if(interest)
+  {
+    console.log(interest);
+    
+  }
+
 };
-const resetFun = () => {
-  count = 0;
-  console.log("Reset Function ", count);
-  renderCountApp();
-};
-
-const appRoot = document.getElementById("app");
-
-const renderCountApp = function () {
-  const templateTwo = (
-    <div>
-      <h1>Count : {count}</h1>
-      <button onClick={addOne}>+1</button>
-      <button onClick={minusOne}>-1</button>
-      <button onClick={resetFun}>reset</button>
-    </div>
-  );
-
-  ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCountApp();
+const template=(
+  <div>
+  <h1 name="arpit">{app.title}</h1>
+  <p>{app.subtitle} </p>
+  <p>{app.option.length > 0 ?'Here are Your Options' :'No options'}</p>
+  <ol>
+    <li>First Item</li>
+    <li>Second Item</li>
+  </ol>
+  <form>
+    <input type="text" name="option" /> 
+    <button name="arpit" onClick={onformsubmit}> Add Option</button>
+  </form>
+  </div>
+)
+const appRoot=document.getElementById("app");
+ReactDOM.render(template,appRoot);

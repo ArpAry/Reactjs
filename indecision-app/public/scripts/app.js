@@ -1,52 +1,63 @@
 "use strict";
 
-var count = 0;
-var addOne = function addOne() {
-  count++;
-  console.log("Add One ", count);
-  renderCountApp();
+var app = {
+  title: "Indecision App",
+  subtitle: "Put Your life in hands of computer",
+  option: ['One', 'Two']
 };
-var minusOne = function minusOne() {
-  count--;
-  console.log("Minus One ", count);
-  renderCountApp();
-};
-var resetFun = function resetFun() {
-  count = 0;
-  console.log("Reset Function ", count);
-  renderCountApp();
-};
+var onformsubmit = function onformsubmit(e) {
+  e.preventDefault();
+  var interest = e.target.form.option.value;
 
-var appRoot = document.getElementById("app");
+  //console.log(interest);
 
-var renderCountApp = function renderCountApp() {
-  var templateTwo = React.createElement(
-    "div",
+  if (interest) {
+    console.log(interest);
+  }
+};
+var template = React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    { name: "arpit" },
+    app.title
+  ),
+  React.createElement(
+    "p",
+    null,
+    app.subtitle,
+    " "
+  ),
+  React.createElement(
+    "p",
+    null,
+    app.option.length > 0 ? 'Here are Your Options' : 'No options'
+  ),
+  React.createElement(
+    "ol",
     null,
     React.createElement(
-      "h1",
+      "li",
       null,
-      "Count : ",
-      count
+      "First Item"
     ),
     React.createElement(
-      "button",
-      { onClick: addOne },
-      "+1"
-    ),
-    React.createElement(
-      "button",
-      { onClick: minusOne },
-      "-1"
-    ),
-    React.createElement(
-      "button",
-      { onClick: resetFun },
-      "reset"
+      "li",
+      null,
+      "Second Item"
     )
-  );
-
-  ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCountApp();
+  ),
+  React.createElement(
+    "form",
+    null,
+    React.createElement("input", { type: "text", name: "option" }),
+    React.createElement(
+      "button",
+      { name: "arpit", onClick: onformsubmit },
+      " Add Option"
+    )
+  )
+);
+var appRoot = document.getElementById("app");
+ReactDOM.render(template, appRoot);
