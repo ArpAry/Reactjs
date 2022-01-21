@@ -1,36 +1,59 @@
 const app={
   title:"Indecision App",
   subtitle:"Put Your life in hands of computer",
-  option:['One','Two']
+  option:[]
 };
-const onformsubmit  = (e) =>
+const onFormSubmit  = (e) =>
 {
   e.preventDefault();
-  const interest=e.target.form.option.value;
-
+ // const interest=e.target.form.option.value;
+const interest=e.target.elements.option.value;
   //console.log(interest);
 
   if(interest)
   {
-    console.log(interest);
-    
+    app.option.push(interest);
+    e.target.elements.option.value='';
+    render();
+
   }
 
 };
-const template=(
-  <div>
-  <h1 name="arpit">{app.title}</h1>
-  <p>{app.subtitle} </p>
-  <p>{app.option.length > 0 ?'Here are Your Options' :'No options'}</p>
-  <ol>
-    <li>First Item</li>
-    <li>Second Item</li>
-  </ol>
-  <form>
-    <input type="text" name="option" /> 
-    <button name="arpit" onClick={onformsubmit}> Add Option</button>
-  </form>
-  </div>
-)
+const removeAllOption= () =>
+{
+  app.option=[];
+  render();
+
+};
+
 const appRoot=document.getElementById("app");
-ReactDOM.render(template,appRoot);
+
+ const render= () =>
+ {
+  const template=(
+    <div>
+    <h1>{app.title}</h1>
+    <p>{app.subtitle} </p>
+    <p>{app.option.length > 0 ?'Here are Your Options' :'No options'}</p>
+    <p >{app.option.length}</p>
+    <button onClick={removeAllOption}> Remove All</button>
+    <ol>
+      {
+        app.option.map((num)=>
+        {
+          return <li key={num}> work : {num} </li>
+
+        })
+      
+
+      }
+    </ol>
+    <form onSubmit={onFormSubmit}>
+      <input type="text" name="option" /> 
+      <button > Add Option</button>
+    </form>
+    </div>
+  )
+  ReactDOM.render(template,appRoot);
+ };
+ render();
