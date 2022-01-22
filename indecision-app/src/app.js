@@ -28,6 +28,11 @@ const removeAllOption= () =>
 
 const appRoot=document.getElementById("app");
 
+const randomWork=()=>
+{
+  let randomNum=Math.floor(Math.random()*app.option.length);
+  alert(app.option[randomNum]);
+};
  const render= () =>
  {
   const template=(
@@ -35,7 +40,7 @@ const appRoot=document.getElementById("app");
     <h1>{app.title}</h1>
     <p>{app.subtitle} </p>
     <p>{app.option.length > 0 ?'Here are Your Options' :'No options'}</p>
-    <p >{app.option.length}</p>
+    <button disabled={app.option.length ===0} onClick={randomWork}>What should I do ?</button>
     <button onClick={removeAllOption}> Remove All</button>
     <ol>
       {
