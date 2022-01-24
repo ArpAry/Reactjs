@@ -8,116 +8,92 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Counter = function (_React$Component) {
-  _inherits(Counter, _React$Component);
+var Toggle = function (_React$Component) {
+    _inherits(Toggle, _React$Component);
 
-  function Counter(props) {
-    _classCallCheck(this, Counter);
+    function Toggle(props) {
+        _classCallCheck(this, Toggle);
 
-    var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Toggle.__proto__ || Object.getPrototypeOf(Toggle)).call(this, props));
 
-    _this.addone = _this.addone.bind(_this);
-    _this.minusone = _this.minusone.bind(_this);
-    _this.reset = _this.reset.bind(_this);
-    _this.state = {
-      count: 0
-    };
-    return _this;
-  }
-
-  _createClass(Counter, [{
-    key: "addone",
-    value: function addone() {
-      this.setState(function (prevState) {
-        return {
-          count: prevState.count + 1
+        _this.showOptions = _this.showOptions.bind(_this);
+        _this.state = {
+            visiblity: false
         };
-      });
+        return _this;
     }
-  }, {
-    key: "minusone",
-    value: function minusone() {
-      this.setState(function (prevobj) {
-        return {
-          count: prevobj.count - 1
-        };
-      });
-    }
-  }, {
-    key: "reset",
-    value: function reset() {
-      this.setState(function (prevobj) {
-        return {
-          count: 0
-        };
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "h1",
-          null,
-          "Counter :",
-          this.state.count,
-          " "
-        ),
-        React.createElement(
-          "button",
-          { onClick: this.addone },
-          "+1"
-        ),
-        React.createElement(
-          "button",
-          { onClick: this.minusone },
-          "-1"
-        ),
-        React.createElement(
-          "button",
-          { onClick: this.reset },
-          "Reset Button"
-        )
-      );
-    }
-  }]);
 
-  return Counter;
+    _createClass(Toggle, [{
+        key: "showOptions",
+        value: function showOptions() {
+            this.setState(function (prevobj) {
+                return {
+                    visiblity: !prevobj.visiblity
+                };
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "h1",
+                    null,
+                    "Toggle App"
+                ),
+                React.createElement(
+                    "button",
+                    { onClick: this.showOptions },
+                    this.state.visiblity ? React.createElement(
+                        "p",
+                        null,
+                        "hide options"
+                    ) : React.createElement(
+                        "p",
+                        null,
+                        "show Options"
+                    )
+                ),
+                this.state.visiblity && React.createElement(
+                    "p",
+                    null,
+                    "here are your options "
+                )
+            );
+        }
+    }]);
+
+    return Toggle;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Counter, null), document.getElementById("app"));
-// let count = 0;
-// const addOne = () => {
-//   count++;
-//   console.log("Add One ", count);
-//   renderCountApp();
+ReactDOM.render(React.createElement(Toggle, null), document.getElementById("app"));
+// const toggleOption={
+//     title:"Toggle-App",
+//     options:['one','two']
 // };
-// const minusOne = () => {
-//   count--;
-//   console.log("Minus One ", count);
-//   renderCountApp();
-// };
-// const resetFun = () => {
-//   count = 0;
-//   console.log("Reset Function ", count);
-//   renderCountApp();
-// };
+// let visiblity=false;
 
-// const appRoot = document.getElementById("app");
+// const togOption =()=>
+// {
+//  visiblity= !visiblity;
+//  render();
+// }
 
-// const renderCountApp = function () {
-//   const templateTwo = (
-//     <div>
-//       <h1>Count : {count}</h1>
-//       <button onClick={addOne}>+1</button>
-//       <button onClick={minusOne}>-1</button>
-//       <button onClick={resetFun}>reset</button>
-//     </div>
-//   );
+// const appRoot=document.getElementById("app");
 
-//   ReactDOM.render(templateTwo, appRoot);
-// };
 
-// renderCountApp();
+//  const render =()=>
+//  {
+//     const template=(
+//         <div>
+//         <h1>{toggleOption.title}</h1>
+//         <button onClick={togOption} >{visiblity ? " Hide Details" : "Show Details" } </button>
+//         <p>{visiblity && ("Here are your Options")}</p>
+//         </div>
+//     );
+//     ReactDOM.render(template,appRoot);
+
+//  }
+//  render();

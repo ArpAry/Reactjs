@@ -32,13 +32,21 @@ class Counter extends React.Component {
   }
 
   reset() 
-  { this.setState((prevobj) => 
+ {
+    { this.setState(() => 
     { 
       return {
         count:0
       }
   } 
-  ) 
+  ) }
+ // this is alter  method  of setState() but it shows asynchronous 
+  // this.setState({
+  //   count:0
+  // })
+  // this.setState({
+  //   count:this.state.count+1
+  // })
   }
   render()
   {
@@ -54,6 +62,8 @@ class Counter extends React.Component {
 
 }
 ReactDOM.render(<Counter/>,document.getElementById("app"));
+
+
 // let count = 0;
 // const addOne = () => {
 //   count++;
