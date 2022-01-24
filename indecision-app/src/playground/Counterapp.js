@@ -1,35 +1,50 @@
-let count=0; 
 class Counter extends React.Component {
   constructor(props)
   {
     super(props);
-    this.addOne=this.addone.bind(this);
-    this.minusOne=this.minusone.bind(this);
+    this.addone=this.addone.bind(this);
+    this.minusone=this.minusone.bind(this);
     this.reset=this.reset.bind(this);
+    this.state= {
+      count: 0
+    };
   }
+
   addone()
   {
-    count+=1;
-    console.log("Add One");
-    console.log(count);
+    this.setState((prevState) =>
+    {
+      return {
+        count:prevState.count+1
+      }
+    }
+    )
   }
+
   minusone()
-  {
-    count-=1;
-    console.log("Minus One");
-    console.log(count);
+  { this.setState((prevobj) =>
+    {
+      return {
+        count:prevobj.count-1
+      }
+    }
+    )
   }
+
   reset() 
-  {
-    count=0;
-    console.log("Reset Counter");
-    console.log(count);
+  { this.setState((prevobj) => 
+    { 
+      return {
+        count:0
+      }
+  } 
+  ) 
   }
   render()
   {
     return(
     <div>
-        <h1>counter :{count} </h1>
+        <h1>Counter :{this.state.count} </h1>
         <button onClick={this.addone}>+1</button>
         <button onClick={this.minusone}>-1</button>
         <button onClick={this.reset}>Reset Button</button>

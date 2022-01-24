@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var count = 0;
-
 var Counter = function (_React$Component) {
   _inherits(Counter, _React$Component);
 
@@ -18,32 +16,41 @@ var Counter = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this, props));
 
-    _this.addOne = _this.addone.bind(_this);
-    _this.minusOne = _this.minusone.bind(_this);
+    _this.addone = _this.addone.bind(_this);
+    _this.minusone = _this.minusone.bind(_this);
     _this.reset = _this.reset.bind(_this);
+    _this.state = {
+      count: 0
+    };
     return _this;
   }
 
   _createClass(Counter, [{
     key: "addone",
     value: function addone() {
-      count += 1;
-      console.log("Add One");
-      console.log(count);
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count + 1
+        };
+      });
     }
   }, {
     key: "minusone",
     value: function minusone() {
-      count -= 1;
-      console.log("Minus One");
-      console.log(count);
+      this.setState(function (prevobj) {
+        return {
+          count: prevobj.count - 1
+        };
+      });
     }
   }, {
     key: "reset",
     value: function reset() {
-      count = 0;
-      console.log("Reset Counter");
-      console.log(count);
+      this.setState(function (prevobj) {
+        return {
+          count: 0
+        };
+      });
     }
   }, {
     key: "render",
@@ -54,8 +61,8 @@ var Counter = function (_React$Component) {
         React.createElement(
           "h1",
           null,
-          "counter :",
-          count,
+          "Counter :",
+          this.state.count,
           " "
         ),
         React.createElement(
