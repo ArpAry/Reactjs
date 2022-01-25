@@ -6,9 +6,10 @@ class Counter extends React.Component {
     this.minusone=this.minusone.bind(this);
     this.reset=this.reset.bind(this);
     this.state= {
-      count: 0
+      count: props.bydefaultuser
     };
   }
+  
 
   addone()
   {
@@ -48,6 +49,7 @@ class Counter extends React.Component {
   //   count:this.state.count+1
   // })
   }
+  
   render()
   {
     return(
@@ -59,9 +61,14 @@ class Counter extends React.Component {
     </div>
     );
   }
+  
 
 }
-ReactDOM.render(<Counter/>,document.getElementById("app"));
+Counter.defaultProps={
+  bydefaultuser:1
+}
+///always first call  the Counter.defultprops then value  goes to Counter class for change   
+ReactDOM.render(<Counter bydefaultuser={1000} />,document.getElementById("app"));
 
 
 // let count = 0;
