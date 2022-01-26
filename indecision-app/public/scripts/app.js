@@ -133,7 +133,7 @@ var Header = function Header(props) {
         ) : React.createElement(
             'h2',
             null,
-            'No Subtitle'
+            'put your life in  hands of computer'
         )
     );
 };
