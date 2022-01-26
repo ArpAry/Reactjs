@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -27,7 +27,7 @@ var Indecisionapp = function (_React$Component) {
     }
 
     _createClass(Indecisionapp, [{
-        key: "deletethisoption",
+        key: 'deletethisoption',
         value: function deletethisoption() {
             // this.setState(() =>{
             //  return  {
@@ -39,7 +39,7 @@ var Indecisionapp = function (_React$Component) {
             });
         }
     }, {
-        key: "deleteoneoption",
+        key: 'deleteoneoption',
         value: function deleteoneoption(removeoneoption) {
             this.setState(function (prevobj) {
                 return { optionsbyuser: prevobj.optionsbyuser.filter(function (option) {
@@ -49,7 +49,32 @@ var Indecisionapp = function (_React$Component) {
             //console.log("|sadjia");
         }
     }, {
-        key: "submitHandle",
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var json = localStorage.getItem('options');
+            var option = JSON.parse(json);
+            console.log(option);
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            try {
+                if (prevState.optionsbyuser.length !== this.state.optionsbyuser.length) {
+                    var json = JSON.stringify(this.state.optionsbyuser);
+                    var options = localStorage.setItem('options', json);
+                    //   console.log(  localStorage.getItem('options'));
+                    if (options) {
+                        this.setState(function () {
+                            return { optionsbyuser: options };
+                        });
+                    }
+                }
+            } catch (e) {
+                //if there is error do nothing
+            }
+        }
+    }, {
+        key: 'submitHandle',
         value: function submitHandle(objbyaddopt) {
             if (!objbyaddopt) return "Please Enter a Valid Option";else if (this.state.optionsbyuser.indexOf(objbyaddopt) > -1) return "This  Option Already Exists";else {
                 //     this.setState((prevobj) =>{
@@ -62,7 +87,7 @@ var Indecisionapp = function (_React$Component) {
             }
         }
     }, {
-        key: "handlepick",
+        key: 'handlepick',
         value: function handlepick() {
             this.setState(function (preobj) {
                 var num = Math.floor(Math.random() * preobj.optionsbyuser.length);
@@ -70,12 +95,12 @@ var Indecisionapp = function (_React$Component) {
             });
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var title = "Indecision App";
             var subtitle = "Put Yor lifein hands of computer";
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(Header, { title: title }),
                 React.createElement(Action, { handlepick: this.handlepick, hasOptions: this.state.optionsbyuser.length > 0 }),
@@ -94,21 +119,21 @@ Indecisionapp.defaultProps = {
 };
 var Header = function Header(props) {
     return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(
-            "h1",
+            'h1',
             null,
             props.title
         ),
         props.subtitle ? React.createElement(
-            "h2",
+            'h2',
             null,
             props.subtitle
         ) : React.createElement(
-            "h2",
+            'h2',
             null,
-            "No Subtitle"
+            'No Subtitle'
         )
     );
 };
@@ -128,13 +153,13 @@ Header.defaultProps = {
 
 };var Action = function Action(props) {
     return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(
-            "button",
+            'button',
             { onClick: props.handlepick,
                 disabled: !props.hasOptions },
-            "What should i do ?"
+            'What should i do ?'
         )
     );
 };
@@ -151,12 +176,17 @@ Header.defaultProps = {
 // };
 var Options = function Options(props) {
     return React.createElement(
-        "div",
+        'div',
         null,
+        props.optionsbyuser.length === 0 && React.createElement(
+            'p',
+            null,
+            '" Add an Option Please "'
+        ),
         React.createElement(
-            "button",
+            'button',
             { onClick: props.deletethisoption },
-            "Remove All"
+            'Remove All'
         ),
         props.optionsbyuser.map(function (num) {
             return React.createElement(Option, { key: num, optionstext: num, deleteoneoption: props.deleteoneoption });
@@ -179,16 +209,16 @@ var Options = function Options(props) {
 // };
 var Option = function Option(props) {
     return React.createElement(
-        "div",
+        'div',
         null,
         props.optionstext,
         React.createElement(
-            "button",
+            'button',
             { onClick: function onClick(e) {
                     props.deleteoneoption(props.optionstext);
                 }
             },
-            "remove"
+            'remove'
         )
     );
 };
@@ -220,11 +250,10 @@ var Addoption = function (_React$Component2) {
     }
 
     _createClass(Addoption, [{
-        key: "submitHandle",
+        key: 'submitHandle',
         value: function submitHandle(e) {
             e.preventDefault();
             var newOption = e.target.elements.option.value.trim();
-            e.target.elements.option.value = "";
             var error = this.props.submitHandle(newOption);
             // this.setState(()=>{
             //     return {
@@ -235,26 +264,29 @@ var Addoption = function (_React$Component2) {
             this.setState(function () {
                 return { error: error };
             });
+            if (!error) {
+                e.target.elements.option.value = "";
+            }
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
                 this.state.error && React.createElement(
-                    "p",
+                    'p',
                     null,
                     this.state.error
                 ),
                 React.createElement(
-                    "form",
+                    'form',
                     { onSubmit: this.submitHandle },
-                    React.createElement("input", { type: "text", name: "option" }),
+                    React.createElement('input', { type: 'text', name: 'option' }),
                     React.createElement(
-                        "button",
+                        'button',
                         null,
-                        "Add Option"
+                        'Add Option'
                     )
                 )
             );

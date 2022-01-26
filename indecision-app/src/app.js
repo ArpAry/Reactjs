@@ -22,7 +22,31 @@ class Indecisionapp extends React.Component{
         this.setState((prevobj)=>({optionsbyuser:prevobj.optionsbyuser.filter((option)=>removeoneoption!==option )}))
         //console.log("|sadjia");
     }
-   
+    componentDidMount()
+    { 
+        const json=localStorage.getItem('options');
+        const option =JSON.parse(json);
+        console.log(option);
+    }
+    componentDidUpdate(prevProps ,prevState)
+    {
+        try {
+        if(prevState.optionsbyuser.length!==this.state.optionsbyuser.length)
+        {
+            const json=JSON.stringify(this.state.optionsbyuser);
+            const options= localStorage.setItem('options',json);
+         //   console.log(  localStorage.getItem('options'));
+       if(options)
+       {
+           this.setState(()=>({optionsbyuser:options}))
+       }
+        }
+        }
+        catch(e)
+        {
+                    //if there is error do nothing
+        }
+    }
     submitHandle(objbyaddopt)
     {
         if(!objbyaddopt)
@@ -112,6 +136,7 @@ const Action=(props) => {
 const Options= (props)=>{
     return (
         <div>
+        {props.optionsbyuser.length === 0 &&<p>" Add an Option Please "</p>}
         <button onClick={props.deletethisoption}>Remove All</button>
             {
                 props.optionsbyuser.map((num) => <Option key={num} optionstext={num} deleteoneoption={props.deleteoneoption}  />  )  
@@ -174,7 +199,6 @@ class Addoption extends React.Component{
     {
         e.preventDefault();
        let newOption= e.target.elements.option.value.trim();
-       e.target.elements.option.value="";
         const error=this.props.submitHandle(newOption); 
         // this.setState(()=>{
         //     return {
@@ -183,6 +207,10 @@ class Addoption extends React.Component{
         //     }
         // })
         this.setState(()=>({error}))
+        if(!error)
+        {
+            e.target.elements.option.value="";
+        }
     
     };
     render() 

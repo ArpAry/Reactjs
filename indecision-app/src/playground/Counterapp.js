@@ -6,10 +6,23 @@ class Counter extends React.Component {
     this.minusone=this.minusone.bind(this);
     this.reset=this.reset.bind(this);
     this.state= {
-      count: props.bydefaultuser
+      count:0
     };
   }
-  
+  componentDidMount(){
+    const stringCount =localStorage.getItem('count');
+    const count =parseInt(stringCount,10);
+    if(!isNaN(count))
+    {
+      this.setState(() => ({count :count}));
+    }
+  }
+
+  componentDidUpdate(prevprop, prevstate){
+    if(prevstate.count!==this.state.count)
+    localStorage.setItem('count',this.state.count);
+    console.log(localStorage.getItem('count'));
+  }
 
   addone()
   {
@@ -64,11 +77,11 @@ class Counter extends React.Component {
   
 
 }
-Counter.defaultProps={
-  bydefaultuser:1
-}
+// Counter.defaultProps={
+//   bydefaultuser:1
+// }
 ///always first call  the Counter.defultprops then value  goes to Counter class for change   
-ReactDOM.render(<Counter bydefaultuser={1000} />,document.getElementById("app"));
+ReactDOM.render(<Counter  />,document.getElementById("app"));
 
 
 // let count = 0;
