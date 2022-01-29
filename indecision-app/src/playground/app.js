@@ -8,7 +8,7 @@ class Indecisionapp extends React.Component{
         this.state={
             optionsbyuser: props.byuser
         };
-    }
+    }    
     deletethisoption()
     {
         // this.setState(() =>{

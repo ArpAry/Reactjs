@@ -1,10 +1,6 @@
 var nameVar='Andrew';
- var nameVar="Arpit";
+var nameVar="Arpit";
 console.log("nameVar",nameVar);
-
-
-
-
 let nameLet="Jen";
 //let nameLet="Julie";
 console.log("nameLet",nameLet);  

@@ -15,17 +15,5 @@ console.log(arSquare(9));
 
 const firstName="Andrew Mead";
 
-
-// REGULAR ARROW FUNCTION
-// const firstFun = (x) =>
-// {
-//     if(x)
-//     {
-//         x=x.split(" ")[1];
-//         console.log(x);
-//     }
-// }
-// firstFun(firstName);
-
 const firstFun=(x) => console.log(x.split(' ')[0]);
 firstFun(firstName);

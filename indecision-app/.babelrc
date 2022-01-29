@@ -1,6 +1,32 @@
+
 {
+    
     "presets":[
         "env",
-        "react"
-    ]
+        "react",
+        "typescript"
+    ],
+    
+  
+    // "plugins": [
+    //  
+    //  ]
+    // "plugins": [
+    //   [ "transform-class-properties",{"loose":"true"}]
+    // ],
+    // "presets": [
+    //   [
+    //     "@babel/preset-env",
+    //     {
+    //       "targets": {
+    //         "browsers": "last 2 chrome versions"
+    //       }
+    //     }
+    //   ]
+    // ],
+    // "compact": false
+
+   "plugins":[ ["transform-class-properties", {"loose": " true"}]]
+
+  
 }
