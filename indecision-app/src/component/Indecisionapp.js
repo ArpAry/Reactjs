@@ -59,6 +59,7 @@ class Indecisionapp extends React.Component{
 
     this.setState((prevobj) =>({optionsbyuser:prevobj.optionsbyuser.concat([objbyaddopt]) }))
     }}
+    
     handlepick()
     { 
         this.setState((preobj) =>
@@ -81,8 +82,10 @@ class Indecisionapp extends React.Component{
 
         );
     }
+  
     
 };
+
 Indecisionapp.defaultProps={
     byuser:['one','two']
 }

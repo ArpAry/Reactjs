@@ -2,8 +2,5 @@ import validator from "validator";
 import React from "react";
 import ReactDOM from "react-dom";
 import Indecisionapp from "./component/Indecisionapp.js";
-
-ReactDOM.render(
-  <Indecisionapp byuser={["study", "market"]} />,
-  document.getElementById("app")
-);
+const appRoot=document.getElementById("app");
+ReactDOM.render( < Indecisionapp byuser={["study", "market"]} />,appRoot );
