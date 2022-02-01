@@ -3,6 +3,8 @@ import Addoption from './Addoption.js';
 import Options from './Options.js';
 import Action from './Action';
 import Header from './Header'; 
+import OptionModal from './OptionModal';
+import Optionmodal from './OptionModal';
 
 class Indecisionapp extends React.Component{
     constructor(props){
@@ -78,6 +80,12 @@ class Indecisionapp extends React.Component{
             <Action handlepick={this.handlepick} hasOptions={this.state.optionsbyuser.length>0}/>
             <Options  deletethisoption={this.deletethisoption} optionsbyuser={this.state.optionsbyuser}  deleteoneoption={this.deleteoneoption}/>
             <Addoption submitHandle={this.submitHandle} optionbyuser={this.state.optionsbyuser}/>
+
+
+
+
+            
+            <Optionmodal/>
             </div>
 
         );
