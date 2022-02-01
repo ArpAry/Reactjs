@@ -7,22 +7,33 @@ import OptionModal from './OptionModal';
 import Optionmodal from './OptionModal';
 
 class Indecisionapp extends React.Component{
-    constructor(props){
-        super(props);
-        this.deletethisoption=this.deletethisoption.bind(this);
-        this.handlepick=this.handlepick.bind(this);
-        this.submitHandle=this.submitHandle.bind(this);
-        this.deleteoneoption=this.deleteoneoption.bind(this);
-        this.state={
-            optionsbyuser: props.byuser
-        };
+    // constructor(props){
+    //     super(props);
+    //     this.deletethisoption=this.deletethisoption.bind(this);
+    //     this.handlepick=this.handlepick.bind(this);
+    //     this.submitHandle=this.submitHandle.bind(this);
+    //     this.deleteoneoption=this.deleteoneoption.bind(this);
+    //     this.state={
+    //         optionsbyuser: props.byuser
+    //     };
+    //}
+    state={
+        optionsbyuser:this.props.byuser,
+        selectedRandom :undefined
+    };
+
+
+    handleClearOption=()=>
+    {
+        this.setState(()=>({selectedRandom:undefined}));
     }
-    deletethisoption()
+    deletethisoption=() =>
     {
 
         this.setState(()=>({optionsbyuser:[]}))
     }
-    deleteoneoption(removeoneoption){
+    deleteoneoption=(removeoneoption) =>
+    {
         this.setState((prevobj)=>({optionsbyuser:prevobj.optionsbyuser.filter((option)=>removeoneoption!==option )}))
     }
     componentDidMount()
@@ -50,7 +61,7 @@ class Indecisionapp extends React.Component{
                     //if there is error do nothing
         }
     }
-    submitHandle(objbyaddopt)
+    submitHandle=(objbyaddopt) =>
     {
         if(!objbyaddopt)
         return "Please Enter a Valid Option"
@@ -62,15 +73,16 @@ class Indecisionapp extends React.Component{
     this.setState((prevobj) =>({optionsbyuser:prevobj.optionsbyuser.concat([objbyaddopt]) }))
     }}
     
-    handlepick()
+    handlepick=()=>
     { 
         this.setState((preobj) =>
       {
         let num=Math.floor(Math.random()*preobj.optionsbyuser.length);
-        alert(preobj.optionsbyuser[num]);
+        const whatShould=preobj.optionsbyuser[num];
+        this.setState(() =>({selectedRandom:whatShould}))
         })
     }
-    render()
+    render=()=>
     {
         const title="Indecision App";
         const subtitle="Put Yor lifein hands of computer";
@@ -85,7 +97,7 @@ class Indecisionapp extends React.Component{
 
 
             
-            <Optionmodal/>
+            <Optionmodal selectedRandom={this.state.selectedRandom} handleClearOption={this.handleClearOption}/>
             </div>
 
         );

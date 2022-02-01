@@ -1,17 +1,4 @@
-// //entry output
 const path = require("path");
-//console.log(__dirname);
-//console.log("bhdfjh");
-// module.exports = {
-//   presets: [
-//     ['@babel/preset-env', {targets: {node: 'current'}}],
-// +    '@babel/preset-typescript',
-//   ],
-// };
-// module.exports = {
-//   "presets": [['@babel/preset-env', {targets: {node: 'current'}}]],
-// };
-// @babel/preset-env
 module.exports = {"presets": "@babel/preset-env"}
 module.exports = {
   
@@ -25,10 +12,6 @@ module.exports = {
 
 
   module: {
-        //   presets: [
-        //     ['@babel/preset-env', {targets: {node: 'current'}}],
-        // +    '@babel/preset-typescript',
-        //   ],
          rules: [
            {
              loader: "babel-loader",
@@ -44,14 +27,6 @@ module.exports = {
          directory: path.join(__dirname, 'public')
     }
 }
+
   
 };
-// module.exports='hello world';
-// const path = require('path');
-
-
-//   devServer: {
-//     static: {
-//       directory: path.join(__dirname, 'public'),
-//     },
-//   },};
