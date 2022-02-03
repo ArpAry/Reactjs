@@ -2,6 +2,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Indecisionapp from "./component/Indecisionapp.js";
+//import "./styles/styles.css";
+//import   "./styles/styles.css";
+import   "./styles/styles.css";
+//import  "file.css";
+//import styles from "./styles/styles.css";
 const appRoot = document.getElementById("app");
 ReactDOM.render(<Indecisionapp  />, appRoot);
 
