@@ -3,8 +3,20 @@ import Option from './Option.js'
 
 const Options= (props)=>(
     <div>
-    {props.optionsbyuser.length === 0 &&<p>" Add an Option Please "</p>}
-    <button onClick={props.deletethisoption}>Remove All</button>
+    <div>
+    
+    </div>
+
+    <div className="widget-header">
+    <h3 className=" widget-header__title">Your Option's</h3>
+    <button
+    className="addoptionbutton addoptionbutton--link"
+    onClick={props.deletethisoption}>
+    Remove All
+    </button>
+    </div>
+        {props.optionsbyuser.length === 0 &&<p className="widget__message"> Add an Option Please </p>}
+
         {
             props.optionsbyuser.map((num) => <Option key={num} optionstext={num} deleteoneoption={props.deleteoneoption}  />  )  
         }

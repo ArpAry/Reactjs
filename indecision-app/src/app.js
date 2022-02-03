@@ -2,9 +2,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Indecisionapp from "./component/Indecisionapp.js";
+import "normalize.css/normalize.css";
 //import "./styles/styles.css";
 //import   "./styles/styles.css";
-import   "./styles/styles.css";
+import   "./styles/styles.scss";
 //import  "file.css";
 //import styles from "./styles/styles.css";
 const appRoot = document.getElementById("app");
