@@ -18,8 +18,9 @@ class Indecisionapp extends React.Component {
   //     };
   //}
   state = {
-    optionsbyuser: this.props.byuser,
-    selectedRandom: undefined,
+   // optionsbyuser: this.props.byuser,
+   optionsbyuser:[], 
+   selectedRandom: undefined,
   };
 
   handleClearOption = () => {
@@ -108,7 +109,7 @@ class Indecisionapp extends React.Component {
   };
 }
 
-Indecisionapp.defaultProps = {
-  byuser: ["one", "two"],
-};
+// Indecisionapp.defaultProps = {
+//   byuser: ["one", "two"],
+// };
 export default Indecisionapp;
