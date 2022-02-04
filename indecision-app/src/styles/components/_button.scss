@@ -6,9 +6,10 @@
     color:white;
     font-weight:bold;
     font-size: $l-size;
-    margin-bottom:$xl-size;
+    margin-bottom:$m-size;
     padding:2.4rem;
     width:100%;
+    word-break: break-all;
 }
 
 //example for applying property on pseudo class
@@ -34,4 +35,11 @@
     border: none;
     color:$color-whiteoff;
     padding:0;
+    word-break: break-all;
+}
+@media(min-width:$smallwidth)
+{
+    .bigbutton{
+        margin-bottom: $xl-size;
+    }
 }
