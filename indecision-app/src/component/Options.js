@@ -18,7 +18,7 @@ const Options= (props)=>(
         {props.optionsbyuser.length === 0 &&<p className="widget__message"> Add an Option Please </p>}
 
         {
-            props.optionsbyuser.map((num) => <Option key={num} optionstext={num} deleteoneoption={props.deleteoneoption}  />  )  
+            props.optionsbyuser.map((num,index) => <Option key={num} optionstext={num} indexoption={index} deleteoneoption={props.deleteoneoption}  />  )  
         }
     
     </div>

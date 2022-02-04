@@ -6,10 +6,12 @@ const Optionmodal=(props)=>
     isOpen={!!props.selectedRandom}
     contentLabel="Select-Option "
     onRequestClose={props.handleClearOption}
+     closeTimeoutMS={200}
+    className="modal"
     >
-        <h1> Selected Option</h1>
-        {props.selectedRandom&&<p>{props.selectedRandom}</p>} 
-        <button onClick={props.handleClearOption}>Okay</button>
+        <h1 className='modal__title'> Selected Option</h1>
+        {props.selectedRandom&&<p className='modal__body'>{props.selectedRandom}</p>} 
+        <button className="addoptionbutton" onClick={props.handleClearOption}>Okay</button>
     </Modal>
 );
 export default Optionmodal;
