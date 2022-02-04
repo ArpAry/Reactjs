@@ -5,7 +5,9 @@ const Option= (props)=>
         
     <div> 
     {props.optionstext}
-    <button onClick={(e)=>{
+    <button 
+    className="addoptionbutton--link"
+    onClick={(e)=> {
      props.deleteoneoption(props.optionstext);}
     }
     >remove</button>
