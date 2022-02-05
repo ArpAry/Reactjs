@@ -4,4 +4,4 @@
 ./Boiler-Plate/node_modules
 ./Boiler-Plate/package-lock.json
 ./Expensify-app/node_modules
-./Expensify-app/package-lock.json
+Expensify-app/package-lock.json
