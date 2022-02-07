@@ -5,16 +5,13 @@ import Indecisionapp from "./component/Indecisionapp.js";
 import "normalize.css/normalize.css";
 //import "./styles/styles.css";
 //import   "./styles/styles.css";
-import   "./styles/styles.scss";
+import "./styles/styles.scss";
 //import  "file.css";
 //import styles from "./styles/styles.css";
 const appRoot = document.getElementById("app");
-ReactDOM.render(<Indecisionapp  />, appRoot);
+ReactDOM.render(<Indecisionapp />, appRoot);
 
-
-
-
-///how to pass child component in es6 function 
+///how to pass child component in es6 function
 
 // const Layoutgiv= (props) =>
 // {

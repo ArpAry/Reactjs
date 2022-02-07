@@ -18,9 +18,9 @@ class Indecisionapp extends React.Component {
   //     };
   //}
   state = {
-   // optionsbyuser: this.props.byuser,
-   optionsbyuser:[], 
-   selectedRandom: undefined,
+    // optionsbyuser: this.props.byuser,
+    optionsbyuser: [],
+    selectedRandom: undefined,
   };
 
   handleClearOption = () => {
@@ -78,25 +78,23 @@ class Indecisionapp extends React.Component {
     const subtitle = "Put Yor lifein hands of computer";
     return (
       <div>
-        
-          <Header title={title} />
-          <div className="container">
+        <Header title={title} />
+        <div className="container">
           <Action
             handlepick={this.handlepick}
             hasOptions={this.state.optionsbyuser.length > 0}
           />
-          
+
           <div className="widget">
-          
-          <Options
-            deletethisoption={this.deletethisoption}
-            optionsbyuser={this.state.optionsbyuser}
-            deleteoneoption={this.deleteoneoption}
-          />
-          <Addoption
-            submitHandle={this.submitHandle}
-            optionbyuser={this.state.optionsbyuser}
-          />
+            <Options
+              deletethisoption={this.deletethisoption}
+              optionsbyuser={this.state.optionsbyuser}
+              deleteoneoption={this.deleteoneoption}
+            />
+            <Addoption
+              submitHandle={this.submitHandle}
+              optionbyuser={this.state.optionsbyuser}
+            />
           </div>
         </div>
 
