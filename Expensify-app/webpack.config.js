@@ -33,7 +33,13 @@ module.exports = {
   devServer: {
     static: {
          directory: path.join(__dirname, 'public')
-    }
+    },
+    // In previous it is Require used search exact path
+
+    
+    // historyApiFallback:true
+
+
 }
 
   
