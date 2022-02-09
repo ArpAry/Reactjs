@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ExpensifyAddPage from "../js-component/AddExpense";
-import ExpensifyDashboardPage from "../js-component/DashbordOfExpense";
-import ExpensifyEditPage from "../js-component/ExpensifyEditPage";
-import ExpensifyHelpPage  from "../js-component/ExpensifyHelp";
-import Error404 from "../js-component/ExpensifyErrorPage";
+import ExpensifyAdd from "../js-component/ExpensifyAdd";
+import ExpensifyDashboard from "../js-component/ExpensifyDashbord";
+import ExpensifyEdit from "../js-component/ExpensifyEdit";
+import ExpensifyHelp from "../js-component/ExpensifyHelp";
+import Error404 from "../js-component/ExpensifyError";
 import Header from "../js-component/ExpensifyHeader";
 
 const AppRouterFun =() =>(
@@ -12,22 +12,22 @@ const AppRouterFun =() =>(
     <div>
     <Header/>
     <Routes>
-    <Route path="/" element={<ExpensifyDashboardPage>  </ExpensifyDashboardPage>} exact={true} />
+    <Route path="/" element={<ExpensifyDashboard>  </ExpensifyDashboard>} exact={true} />
     <Route
       path="/create"
-      element={<ExpensifyAddPage> </ExpensifyAddPage>}
+      element={<ExpensifyAdd> </ExpensifyAdd>}
     />
     <Route
-      path="/edit"
-      element={<ExpensifyEditPage> </ExpensifyEditPage>}
+      path="/edit/:id"
+      element={<ExpensifyEdit> </ExpensifyEdit>}
     />
     <Route
       path="/help"
-      element={<ExpensifyHelpPage> </ExpensifyHelpPage>}
+      element={<ExpensifyHelp> </ExpensifyHelp>}
     />
     <Route path="*" element={<Error404>  </Error404>} />
     </Routes>
-      </div>
+    </div>
   </BrowserRouter>
 );
 export default AppRouterFun;
