@@ -1,32 +1,23 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ExpensifyAdd from "../js-component/ExpensifyAdd";
-import ExpensifyDashboard from "../js-component/ExpensifyDashbord";
-import ExpensifyEdit from "../js-component/ExpensifyEdit";
-import ExpensifyHelp from "../js-component/ExpensifyHelp";
-import Error404 from "../js-component/ExpensifyError";
-import Header from "../js-component/ExpensifyHeader";
+import { BrowserRouter, NavLink, Routes, Route, Link } from "react-router-dom";
+import Home from "../js-component/Home";
+import Error404 from "../js-component/Error";
+import Portfolio from "../js-component/Portfolio";
+import Contact from "../js-component/contact";
+import Header from "../js-component/Header";
+import Item from "../js-component/PortfolioItem";
 
-const AppRouterFun =() =>(
-    <BrowserRouter>
+const AppRouterFun = () => (
+  <BrowserRouter>
     <div>
-    <Header/>
-    <Routes>
-    <Route path="/" element={<ExpensifyDashboard>  </ExpensifyDashboard>} exact={true} />
-    <Route
-      path="/create"
-      element={<ExpensifyAdd> </ExpensifyAdd>}
-    />
-    <Route
-      path="/edit/:id"
-      element={<ExpensifyEdit> </ExpensifyEdit>}
-    />
-    <Route
-      path="/help"
-      element={<ExpensifyHelp> </ExpensifyHelp>}
-    />
-    <Route path="*" element={<Error404>  </Error404>} />
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/portfolio" element={<Item></Item>}></Route>
+        <Route path="/Portfolio/:id" element={<Portfolio></Portfolio>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="*" element={<Error404></Error404>}></Route>
+      </Routes>
     </div>
   </BrowserRouter>
 );

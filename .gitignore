@@ -1,6 +1,5 @@
-indecision-app/node_modules/
-indecision-app/package-lock.json
+
+/indecision-app/node_modules/
 Boiler-Plate/node_modules
-Boiler-Plate/package-lock.json
 Expensify-app/node_modules
-Expensify-app/package-lock.json
+
