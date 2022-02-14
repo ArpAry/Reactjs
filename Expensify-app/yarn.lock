@@ -950,7 +950,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.16.7"
     "@babel/plugin-transform-react-pure-annotations" "^7.16.7"
 
-"@babel/runtime@^7.7.6":
+"@babel/runtime@^7.7.6", "@babel/runtime@^7.9.2":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
   integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
@@ -6626,6 +6626,13 @@ redis@^2.8.0:
     double-ended-queue "^2.1.0-0"
     redis-commands "^1.2.0"
     redis-parser "^2.6.0"
+
+redux@^5.0.0-alpha.0:
+  version "5.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-5.0.0-alpha.0.tgz#a787df7b92a69af70900c84586fc2dc89ca97ab5"
+  integrity sha512-9NQVVttmTiwECalBRd6sKWW4e8u6ekR1rlfsHy0ZOU95kcDpKp4enL8xbNZkKgT7GhnNmlfNZp1HWlHs+XZaww==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 referrer-policy@1.2.0:
   version "1.2.0"
