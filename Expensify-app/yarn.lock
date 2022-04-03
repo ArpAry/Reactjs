@@ -6627,10 +6627,10 @@ redis@^2.8.0:
     redis-commands "^1.2.0"
     redis-parser "^2.6.0"
 
-redux@^5.0.0-alpha.0:
-  version "5.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-5.0.0-alpha.0.tgz#a787df7b92a69af70900c84586fc2dc89ca97ab5"
-  integrity sha512-9NQVVttmTiwECalBRd6sKWW4e8u6ekR1rlfsHy0ZOU95kcDpKp4enL8xbNZkKgT7GhnNmlfNZp1HWlHs+XZaww==
+redux@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.2.tgz#140f35426d99bb4729af760afcf79eaaac407104"
+  integrity sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw==
   dependencies:
     "@babel/runtime" "^7.9.2"
 
