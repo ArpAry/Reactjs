@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = { presets: "@babel/preset-env" };
 module.exports = {
   mode: "development",
-  entry: "./src/playground/destructuring.js",
+  entry: "./src/playground/redux-101.js",
 
   output: {
     path: path.join(__dirname, "public"),
