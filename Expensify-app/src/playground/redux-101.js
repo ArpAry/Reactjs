@@ -10,8 +10,12 @@ const Incrementcount=({incrementby = 1}={}) =>({
 const Reset=()=>({type:'RESET'});
 const Setcount=({count})=>({type:'SETCOUNT',count});
 const Decrementcount =({decrementby=1}={})=>({type:'DECREMENT',decrementby});
-
-const store=createStore((state={count:0},action)=>
+//
+//REducrs Properties
+//
+//1 Reducere are pure function
+//2 Never change state or function values directly 
+const countreducer=(state={count:0},action)=>
 {
    //  console.log(count);
     if(action.type==='INCREMENT')
@@ -32,7 +36,8 @@ const store=createStore((state={count:0},action)=>
     }
     else
     return  state;
-});
+};
+const store=createStore(countreducer);
 //console.log(store.getState());
 const unsubscribe=store.subscribe(()=>{
     console.log(store.getState());
@@ -49,6 +54,6 @@ store.dispatch(Decrementcount({decrementby:10}));
 store.dispatch(Decrementcount({}));
 
 store.dispatch(Setcount({count:101}));
-//console.log(store.getState());
+//console.log(store.getState());mak
 // console.log("123");
  
