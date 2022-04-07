@@ -1,5 +1,16 @@
 const path = require("path");
+const {Cleanwebpackplugin}=require('clean-webpack-plugin');
+const Htmlwebpackplugin=require('html-webpack-plugin');
+
 module.exports = { presets: "@babel/preset-env" };
+// module.exports={
+//   context: __dirname,
+//   entry: "./app.js",
+//   output: {
+//         path: __dirname + "/dist",
+//         filename:"bundle.js"
+//   }
+//}
 module.exports = {
   mode: "development",
   entry: "./src/playground/Redux-Expensify.js",
@@ -22,8 +33,13 @@ module.exports = {
       },
     ],
   },
+  "plugins": ["@babel/plugin-syntax-class-properties"]
+               ,
 
   devtool: "eval-cheap-module-source-map",
+  node: { fs: 'empty' },
+  devtool: options.devtool,
+  target: 'web',
   devServer: {
     static: {
       directory: path.join(__dirname, "public"),
