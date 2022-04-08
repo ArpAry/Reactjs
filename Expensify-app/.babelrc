@@ -2,6 +2,6 @@
 //.babel.rc is a json file thal allows all the argument
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": ["@babel/plugin-syntax-class-properties"
+  "plugins": ["@babel/plugin-syntax-class-properties","transform-object-rest-spread"
                ]
 }
