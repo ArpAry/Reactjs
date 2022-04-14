@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route ,Link} from "react-router-dom";
 import ExpensifyAdd from "../js-component/ExpensifyAdd";
-import ExpensifyDashboard from "../js-component/ExpensifyDashbord";
+import ExpensifyDashboard from "../js-component/ExpensifyDashboard";
 import ExpensifyEdit from "../js-component/ExpensifyEdit";
 import ExpensifyHelp from "../js-component/ExpensifyHelp";
 import Error404 from "../js-component/ExpensifyError";

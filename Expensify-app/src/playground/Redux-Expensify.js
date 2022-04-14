@@ -74,7 +74,7 @@ const store=createStore(
         Age:14,
         class:1
     }
-    //console.log(...stu);
+  //  console.log(...stu);
    
 // const demostate={
 //     expense: [{
