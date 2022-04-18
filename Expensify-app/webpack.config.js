@@ -3,7 +3,7 @@ module.exports = {"presets": "@babel/preset-env"}
 module.exports = {
   
   mode: "development",
-  entry: "./src/playground/destructuring.js",
+  entry: "./src/playground/Redux-Expensify.js",
 
   output: {
     path: path.join(__dirname, 'public'),
