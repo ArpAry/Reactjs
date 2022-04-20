@@ -112,6 +112,10 @@ const getVisibleExpenses = (expense, { text, sortby, startDate, endDate }) => {
       if (sortby === "Date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       }
+      else if(sortby==="amount")
+      {
+        return a.amount <b.amount ?1:-1;
+      }
     });
 };
 
@@ -139,7 +143,7 @@ const expenseTwo = store.dispatch(
 );
 //   store.dispatch(setTextFilter("cof"));
 //     store.dispatch(setTextFilter());
-//     store.dispatch(sortByAmount());
+     store.dispatch(sortByAmount());
 //     store.dispatch(sortByDate());
 // store.dispatch(sortByStartDate(50));
 //   store.dispatch(sortByStartDate());

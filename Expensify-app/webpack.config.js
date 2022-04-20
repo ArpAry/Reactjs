@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = { presets: "@babel/preset-env" };
 module.exports = {
   mode: "development",
-  entry: "./src/playground/Redux-Expensify.js",
+  entry: "./src/app.js",
 
   output: {
     path: path.join(__dirname, "public"),
