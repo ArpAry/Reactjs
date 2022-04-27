@@ -17,8 +17,8 @@ const AppRouterFun = () => (
           element={<ExpensifyDashboard> </ExpensifyDashboard>}
           exact={true}
         />
-        <Route path="/create" element={<ExpensifyAdd> </ExpensifyAdd>} />
-        <Route path="/edit/:id" element={<ExpensifyEdit> </ExpensifyEdit>} />
+        <Route path="create" element={<ExpensifyAdd> </ExpensifyAdd>} />
+        <Route path="edit/:id" element={<ExpensifyEdit> </ExpensifyEdit>} />
         <Route path="/help" element={<ExpensifyHelp> </ExpensifyHelp>} />
         <Route path="*" element={<Error404> </Error404>} />
       </Routes>

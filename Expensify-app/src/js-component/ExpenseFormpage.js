@@ -4,24 +4,27 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 const now = moment();
-console.log(now);
+//console.log(now);
 
 export default class ExpenseFormPage extends React.Component {
-  state = {
-    description: "",
-    Amount: "",
-    Note: "",
-    createdAt:moment(),
-    calanderFocused:false
-
-  };
+  constructor(props){
+    super(props);
+    this.state={
+      description: props.expense?props.expense.description:"",
+      Amount: props.expense ?(props.expense.Amount/100).toString() :"",
+      Note: props.expense ?props.expense.Note:"",
+      createdAt:props.expense ?moment(props.expense.createdAt):moment(),
+      calanderFocused:false,
+      error:""
+    };
+  }
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
   };
   onAmountChange = (e) => {
     const Amount = e.target.value;
-    if (Amount.match(/^\d*(\.\d{0,2})?$/)) {
+    if (!Amount ||Amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ Amount }));
     }
   };
@@ -30,16 +33,40 @@ export default class ExpenseFormPage extends React.Component {
     this.setState((e) => ({ Note }));
   };
   onDateChange=(createdAt)=>{
-    this.setState(()=>({createdAt}));
+    if(createdAt)
+    {
+      this.setState(()=>({createdAt}));
+    }
   };
   onFocusChange=({focused})=>{
       this.setState(()=>({calanderFocused:focused}))
 
   };
+  onSubmitPage=({e})=>{
+    e.preventDefault();
+
+    if(!this.state.Amount||!this.state.description)
+    {
+      this.setState(()=>({error:"Please Provide Description and Amount"}))
+    }
+    else
+    {
+     console.log("submittted");
+      this.setState(()=>({error:""}));
+      this.props.onSubmit({
+        description:this.state.description,
+        Amount:parseFloat(this.state.Amount,10)*100,
+        createdAt:this.state.createdAt.valueOf(),
+        Note:this.state.Note
+      });
+    }
+  }
   render() {
     return (
       <div>
+      { this.state.error && <p>{this.state.error}</p>}
         <h1>Expense Page</h1>
+         <form onSubmit={this.onSubmitPage}>
         <input
           type="text"
           placeholder="Description"
@@ -67,6 +94,7 @@ export default class ExpenseFormPage extends React.Component {
           onChange={this.onNoteChange}
         ></textarea>
         <button>Add Expense</button>
+        </form>
       </div>
     );
   }

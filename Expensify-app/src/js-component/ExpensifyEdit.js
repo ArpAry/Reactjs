@@ -1,11 +1,36 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 import { useLocation } from "react-router-dom";
-const ExpensifyEdit = () => {
+import ExpenseFormPage from "./ExpenseFormpage";
+import { editExpense , removeExpense } from "../actions/expenses";
+const ExpensifyEdit = (props) => {
   let { id } = useParams();
   let location = useLocation();
-  console.log(location);
+ // console.log(location);
   //console.log(id);
-  return <div>Edit the Expense Page with id of {id}</div>;
+  //console.log(props);
+  return <div>
+        <ExpenseFormPage
+        expense={props.expense}
+        onSubmit={(expense)=>{
+          props.dispatch(editExpense(props.expense.id,expense));
+          props.history.push('/');//console.log('updated',expense);
+      }}/>
+      <button
+      onClick={() => {
+      props.dispatch(removeExpense({ id :props.expense.id}));
+      }}
+    >
+      Remove
+    </button>      
+  </div>;
 };
-export default ExpensifyEdit;
+
+const mapStateToProps=(state)=>{
+  let {id}=useParams();
+  return{
+    expense:state.expense.find((expense)=>expense.id===id )
+  }
+}
+export default connect(mapStateToProps)(ExpensifyEdit);
