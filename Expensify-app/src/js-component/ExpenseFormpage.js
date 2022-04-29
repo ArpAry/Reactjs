@@ -60,7 +60,7 @@ export default class ExpenseFormPage extends React.Component {
         Note:this.state.Note
       });
     }
-  }
+  };
   render() {
     return (
       <div>
