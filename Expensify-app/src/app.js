@@ -1,10 +1,3 @@
-// import validator from "validator";
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import "normalize.css/normalize.css";
-// import "./styles/styles.scss";
-// const appRoot = document.getElementById("app");
-// ReactDOM.render(<p>this is Boilerplate</p>, appRoot);
 import AppRouterFun from "./routers/AppRouter";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -13,11 +6,11 @@ import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import { Provider } from "react-redux";
 import { addExpense } from "./actions/expenses";
-import { setTextFilter } from "./actions/filter";
+//import { setTextFilter } from "./actions/filter";
 import getVisibleExpenses from "./selectors/expenses";
 //import expenses from "./reducers/expenses";
 const store = configureStore();
-
+//console.log(dispatcher);
 store.dispatch(addExpense({ description: "water bill", amount: 15000 }));
 store.dispatch(addExpense({ description: "gas bill", amount: 2010 ,createdAt:105}));
 //store.dispatch(addExpense({ description: "hand bill", amount: 2010 ,createdAt:105}));
@@ -27,17 +20,13 @@ store.dispatch(addExpense({ description:"rent  bill", amount:1005, createdAt:102
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expense, state.filters);
 console.log(visibleExpenses);
-//console.log(store.getState());
 
-// store.dispatch(setTextFilter("water bill"));
-
-// setTimeout(() => {
-//   store.dispatch(setTextFilter("bill"));
-// }, 3000);
 const jsx = (
+  
   <Provider store={store}>
     <AppRouterFun />
   </Provider>
+
 );
 const appRoot = document.getElementById("app");
 ReactDOM.render(jsx, appRoot);

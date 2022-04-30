@@ -11,26 +11,32 @@ const ExpensifyEdit = (props) => {
   //console.log(id);
   //console.log(props);
   return <div>
-        <ExpenseFormPage
-        expense={props.expense}
-        onSubmit={(expense)=>{
-          props.dispatch(editExpense(props.expense.id,expense));
-          props.history.push('/');//console.log('updated',expense);
-      }}/>
-      <button
-      onClick={() => {
-      props.dispatch(removeExpense({ id :props.expense.id}));
-      }}
-    >
-      Remove
-    </button>      
+      Editing the Expense with id of {id}
   </div>;
 };
 
-const mapStateToProps=(state)=>{
-  let {id}=useParams();
-  return{
-    expense:state.expense.find((expense)=>expense.id===id )
-  }
-}
-export default connect(mapStateToProps)(ExpensifyEdit);
+ // <ExpenseFormPage
+        // expense={props.expense}
+        // onSubmit={(expense)=>{
+        //   props.dispatch(editExpense(props.expense.id,expense));
+        //   props.history.push('/');
+        //   }}/>
+
+
+// <button
+//       onClick={() => {
+//       props.dispatch(removeExpense({ id :props.expense.id}));
+//       }}
+//     >
+//       Remove
+//     </button> 
+
+
+// const mapStateToProps=(state)=>{
+//   let {id}=useParams();
+//   return{
+//     expense:state.expense.find((expense)=>expense.id===id )
+//   }
+// }
+// export default connect(mapStateToProps)(ExpensifyEdit);
+export default ExpensifyEdit;
