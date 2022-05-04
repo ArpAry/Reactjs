@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 const ExpenseListItem = ({ id,  description, amount, createdAt }) => (
   <div>
   <Link to={`\edit/${id}`}>
@@ -12,4 +13,4 @@ const ExpenseListItem = ({ id,  description, amount, createdAt }) => (
   </div>
 );
 
-export default ExpenseListItem;
+export default connect()(ExpenseListItem);

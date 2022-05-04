@@ -22,10 +22,11 @@ const visibleExpenses = getVisibleExpenses(state.expense, state.filters);
 console.log(visibleExpenses);
 
 const jsx = (
-  
-  <Provider store={store}>
+  <React.StrictMode>
+    <Provider store={store}>
     <AppRouterFun />
   </Provider>
+  </React.StrictMode>
 
 );
 const appRoot = document.getElementById("app");

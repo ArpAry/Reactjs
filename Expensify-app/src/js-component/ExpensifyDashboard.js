@@ -1,15 +1,12 @@
 import React from "react";
+//import { Connect } from "react-redux";
 import ExpenseList from "./ExpenseList";
+//import ExpensifyAdd from "./ExpensifyAdd";
 import ExpenseListFilter from "./ExpenseListFilter";
-const ExpensifyDashboard = (props) =>{
-console.log(props);
- return (
+const ExpensifyDashboard=()=>(
   <div>
-  <ExpenseList/>  <ExpenseListFilter/>
-  
-  <h1>hello</h1>
+   <h1>Dashboard Page</h1>
   </div>
-)};
+);
 export default ExpensifyDashboard;
-//<ExpenseList/>  <ExpenseListFilter/>
-//  <ExpenseList/>
+//<ExpenseList/>
