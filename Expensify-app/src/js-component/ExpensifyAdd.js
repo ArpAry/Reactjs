@@ -1,37 +1,30 @@
-// import React from "react"; 
-// import { connect } from 'react-redux';
-// import ExpenseFormPage from "./ExpenseFormpage";
-// import { addExpense } from "../actions/expenses";
-// const ExpensifyAdd = (props) => (
-//      <div>
-//     <h1>Add Expense</h1>
-//     <ExpenseFormPage onSubmit={(expenses) => {
-//     // console.log("props from Exepensify-Add ")  ;
-//      console.log(props);
-//      console.log(expenses);
-//           props.dispatch(addExpense(expenses)); 
-//         props.history.push('/');
-//     } }
-//     />
-//     </div>
-//     );
-// export default ExpensifyAdd;
-// //export default connect()(ExpensifyAdd);
+
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, } from 'react-redux';
 import ExpenseFormPage from './ExpenseFormpage';
 import { addExpense } from '../actions/expenses';
+import { useNavigate } from "react-router-dom";
 
-const ExpensifyAdd = (props) => (
+
+const ExpensifyAdd = (props) => {
+  const navigate = useNavigate();
+  return(
   <div>
+
+  
     <h1>Add Expense</h1>
     <ExpenseFormPage
       onSubmit={(expense) => {
-        props.dispatch(addExpense(expense));
-        props.history.push('/');
+        if (expense.description && expense.Amount) {
+          props.dispatch(addExpense(expense));
+          navigate('/');
+      }
+      
       }}
     />
   </div>
-);
+)};
 
 export default connect()(ExpensifyAdd);
+//  props.dispatch(addExpense(expense));
+//useNavigate('/');
