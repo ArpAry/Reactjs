@@ -5,8 +5,8 @@ import ExpenseListFilter from "./ExpenseListFilter";
 const ExpensifyDashboard=()=>(
   <div>
    <h1>Dashboard Page</h1>
-   <ExpenseList/>
    <ExpenseListFilter/>
+   <ExpenseList/>
   </div>
 );
 export default ExpensifyDashboard;

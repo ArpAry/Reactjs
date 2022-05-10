@@ -1,32 +1,63 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setTextFilter, sortByDate, sortByAmount } from "../actions/filter";
-const ExpenseListFilter = (props) => {
-  return (
-    <div>
+import { DateRangePicker } from "react-dates";
+import "react-dates/initialize";
+import { setTextFilter, sortByDate, sortByAmount,sortByEndDate,sortByStartDate} from "../actions/filter";
+class ExpenseListFilter extends React.Component{
+  state={
+    calanderFocused:null
+  };
+  onDatesChange=({startDate,endDate})=>{
+    this.props.dispatch(sortByStartDate(startDate));
+    this.props.dispatch(sortByEndDate(endDate));
+
+  };
+
+  onFocusChange=(calanderFocused)=>{
+    this.setState(()=>({calanderFocused}))
+  }
+  render()
+  {
+    return (
+      <div>
       <input
         type="text"
-        defaultValue={props.filter.text}
+        defaultValue={this.props.filter.text}
         onChange={(e) => {
-          props.dispatch(setTextFilter(e.target.value));
+        this.props.dispatch(setTextFilter(e.target.value));
         }}
       />
       <select
-        value={props.filter.sortby}
+        value={this.props.filter.sortby}
         onChange={(e) => {
           if (e.target.value === "date") {
-            props.dispatch(sortByDate());
+            this.props.dispatch(sortByDate());
           } else if (e.target.value === "amount") {
-            props.dispatch(sortByAmount());
+            this.props.dispatch(sortByAmount());
           }
         }}
       >
         <option value="date">Date</option>
         <option value="amount">Amount</option>
       </select>
-    </div>
-  );
-};
+      <DateRangePicker
+      startDateId="MyDatePickerStart"
+            endDateId="MyDatePickerEnd"
+      startDate={this.props.filter.startDate}
+      endDate={this.props.filter.endDate}
+      onDatesChange={this.onDatesChange}
+       focusedInput={this.state.calanderFocused}
+      onFocusChange={this.onFocusChange}
+      showClearDates={true}
+      numberOfMonths={1}
+      isOutsideRange={()=>false}
+
+      />
+      </div>
+    )
+  }
+}
+
 const mapStatetoProps = (state) => {
   return {
     filter: state.filters,
