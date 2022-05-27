@@ -32,6 +32,7 @@ const Header = () => (
     </p>
   </header>
 );
+
 export default Header;
 
 // isActive is a property
